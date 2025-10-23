@@ -1,9 +1,9 @@
-import cv2, time, requests, asyncio, random
+import cv2, time, asyncio, random
 from datetime import datetime
 from picamera2 import Picamera2
 from pyzbar.pyzbar import decode
-import pygame
 from common.date_checker import DateChecker
+from common.display_manager import DisplayManager
 from common.phone_state_manager import PhoneState, PhoneStateManager
 from common.switchbot import SwitchBot
 from dotenv import load_dotenv
@@ -29,6 +29,7 @@ async def main():
     # SwitchBot
 	bot = SwitchBot(os.getenv("MAC_ADDRESS"))
 	
+	display = DisplayManager()
 	
 	"""
 	監視するかチェック
@@ -54,6 +55,12 @@ async def main():
 		print('detox_time: ', str(phone_state.detox_time) + ' s')
 		print('smartphone_count: ', phone_state.smartphone_count)
 		print('----------------------------')
+  
+		display.update_status(
+      		phone_state.detox_time, 
+        	phone_state.smartphone_count,
+			Const.PIYO_IMAGE_NAME
+    	)
 		
 		time.sleep(Const.INTERVAL_SEC)
 		

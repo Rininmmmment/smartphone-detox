@@ -18,6 +18,11 @@ class Const:
     MOS_SOUND_NAME = Path(__file__).parent / "sounds" / "mos39.mp3"
     
     """
+    Images
+    """
+    PIYO_IMAGE_NAME = Path(__file__).parent / "images" / "cat.jpg"
+    
+    """
     SwitchBot
     """
     CHARACTERISTIC = "cba20002-224d-11e6-9fb8-0002a5d5c51b"

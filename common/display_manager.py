@@ -1,8 +1,10 @@
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 import sys
-sys.path.append('/home/rininmmmment/e-Paper/RaspberryPi_JetsonNano/python/lib')
+from common.const import Const
 from waveshare_epd import epd2in13_V3
+
+sys.path.append(Const.E_PAPER_LIB_PATH)
 
 class DisplayManager:
     def __init__(self):
@@ -10,8 +12,8 @@ class DisplayManager:
         self.epd.init()
         self.epd.Clear()
         self.font = ImageFont.truetype(
-            '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 
-            18
+            Const.FONT_NAME, 
+            Const.FONT_SIZE
         )
 
     def update_status(self, detox_time: float, smartphone_count: int, icon_path):

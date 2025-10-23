@@ -21,6 +21,17 @@ class Const:
     Images
     """
     PIYO_IMAGE_NAME = Path(__file__).parent / "images" / "cat.jpg"
+
+    """
+    Fonts
+    """
+    FONT_NAME = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+    FONT_SIZE = 18
+    
+    """
+    e-Paper
+    """
+    E_PAPER_LIB_PATH = "/home/rininmmmment/e-Paper/RaspberryPi_JetsonNano/python/lib"
     
     """
     SwitchBot
